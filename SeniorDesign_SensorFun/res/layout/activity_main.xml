@@ -1,8 +1,342 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#ff888888" >
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <!-- Reset Button -->
+
+        <Button
+            android:id="@+id/reset_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="reset_location"
+            android:text="Reset" >
+        </Button>
+
+        <!-- X Locator -->
+
+        <TextView
+            android:id="@+id/x_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/reset_button"
+            android:text="X: "
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/edit_x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/x_textView"
+            android:layout_toRightOf="@id/x_textView"
+            android:text="0 cm"
+            android:textSize="30sp" />
+
+        <!-- Y Locator -->
+
+        <TextView
+            android:id="@+id/y_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/x_textView"
+            android:text="Y: "
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/edit_y"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/y_textView"
+            android:layout_toRightOf="@id/y_textView"
+            android:text="0 cm"
+            android:textSize="30sp" />
+
+        <!-- X Velocity -->
+
+        <TextView
+            android:id="@+id/x_velocity_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/y_textView"
+            android:paddingTop="20sp"
+            android:text="X Vel: "
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/edit_x_vel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/x_velocity_textView"
+            android:layout_toRightOf="@id/x_velocity_textView"
+            android:text="0 cm/s"
+            android:textSize="30sp" />
+
+        <!-- Y Velocity -->
+
+        <TextView
+            android:id="@+id/y_velocity_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/x_velocity_textView"
+            android:paddingTop="0sp"
+            android:text="Y Vel: "
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/edit_y_vel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/y_velocity_textView"
+            android:layout_toRightOf="@id/y_velocity_textView"
+            android:text="0 cm/s"
+            android:textSize="30sp" />
+
+        <!-- Accel X -->
+
+        <TextView
+            android:id="@+id/x_accel_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/y_velocity_textView"
+            android:paddingTop="20sp"
+            android:text="X Accel: "
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/edit_x_accel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/x_accel_textView"
+            android:layout_toRightOf="@id/x_accel_textView"
+            android:text="0"
+            android:textSize="30sp" />
+
+        <!-- Accel Y -->
+
+        <TextView
+            android:id="@+id/y_accel_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/x_accel_textView"
+            android:paddingTop="0sp"
+            android:text="Y Accel: "
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/edit_y_accel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/y_accel_textView"
+            android:layout_toRightOf="@id/y_accel_textView"
+            android:text="0"
+            android:textSize="30sp" />
+
+        <!-- Accel Z -->
+
+        <TextView
+            android:id="@+id/z_accel_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/y_accel_textView"
+            android:paddingTop="0sp"
+            android:text="Z Accel: "
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/edit_z_accel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/z_accel_textView"
+            android:layout_toRightOf="@id/z_accel_textView"
+            android:text="0"
+            android:textSize="30sp" />
+
+        <!-- Pitch -->
+
+        <TextView
+            android:id="@+id/pitch_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/z_accel_textView"
+            android:paddingTop="20sp"
+            android:text="Pitch: "
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/edit_pitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/pitch_textView"
+            android:layout_toRightOf="@id/pitch_textView"
+            android:text="0"
+            android:textSize="30sp" />
+
+        <!-- Roll -->
+
+        <TextView
+            android:id="@+id/roll_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pitch_textView"
+            android:paddingTop="0sp"
+            android:text="Roll: "
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/edit_roll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/roll_textView"
+            android:layout_toRightOf="@id/roll_textView"
+            android:text="0"
+            android:textSize="30sp" />
+
+        <!-- Yaw -->
+
+        <TextView
+            android:id="@+id/yaw_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/roll_textView"
+            android:paddingTop="0sp"
+            android:text="Yaw: "
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/edit_yaw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/yaw_textView"
+            android:layout_toRightOf="@id/yaw_textView"
+            android:text="0"
+            android:textSize="30sp" />
+
+        <!-- Flitered Left Motor Value -->
+
+        <TextView
+            android:id="@+id/filter_left_motor_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/yaw_textView"
+            android:paddingTop="20sp"
+            android:text="Filtered Left Motor: "
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/edit_filter_left_motor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/filter_left_motor_textView"
+            android:layout_toRightOf="@id/filter_left_motor_textView"
+            android:text="0"
+            android:textSize="30sp" />
+
+        <!-- Flitered Right Motor Value -->
+
+        <TextView
+            android:id="@+id/filter_right_motor_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/filter_left_motor_textView"
+            android:paddingTop="0sp"
+            android:text="Filtered Right Motor: "
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/edit_filter_right_motor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/filter_right_motor_textView"
+            android:layout_toRightOf="@id/filter_right_motor_textView"
+            android:text="0"
+            android:textSize="30sp" />
+
+        <!-- Flitered toString Motor Value -->
+
+        <TextView
+            android:id="@+id/filter_toString_motor_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/filter_right_motor_textView"
+            android:paddingTop="0sp"
+            android:text="Filtered toString: "
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/edit_filter_toString_motor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/filter_toString_motor_textView"
+            android:layout_toRightOf="@id/filter_toString_motor_textView"
+            android:text="0"
+            android:textSize="30sp" />
+
+        <!-- Raw Left Motor Value -->
+
+        <TextView
+            android:id="@+id/raw_left_motor_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/filter_toString_motor_textView"
+            android:paddingTop="10sp"
+            android:text="Raw Left Motor: "
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/edit_raw_left_motor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/raw_left_motor_textView"
+            android:layout_toRightOf="@id/raw_left_motor_textView"
+            android:text="0"
+            android:textSize="30sp" />
+
+        <!-- Raw Right Motor Value -->
+
+        <TextView
+            android:id="@+id/raw_right_motor_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/raw_left_motor_textView"
+            android:paddingTop="0sp"
+            android:text="Raw Right Motor: "
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/edit_raw_right_motor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/raw_right_motor_textView"
+            android:layout_toRightOf="@id/raw_right_motor_textView"
+            android:text="0"
+            android:textSize="30sp" />
+
+        <!-- Raw toString Motor Value -->
+
+        <TextView
+            android:id="@+id/raw_toString_motor_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/raw_right_motor_textView"
+            android:paddingTop="0sp"
+            android:text="Raw toString Motor: "
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/edit_raw_toString_motor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/raw_toString_motor_textView"
+            android:layout_toRightOf="@id/raw_toString_motor_textView"
+            android:text="0"
+            android:textSize="30sp" />
+    </RelativeLayout>
 
     <orbotix.view.connection.SpheroConnectionView
         android:id="@+id/sphero_connection_view"
@@ -10,4 +344,4 @@
         android:layout_height="fill_parent"
         android:background="#FFF" />
 
-</LinearLayout>
+</FrameLayout>
